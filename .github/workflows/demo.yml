@@ -18,5 +18,8 @@ jobs:
         # Configurar Surge.sh
         npm install --global surge
     
-        # Desplegar en Surge.sh
-        surge --project ./ --domain $SURGE_SUBDOMAIN.surge.sh --token ${{secrets.SURGE_API_KEY}}
+        
+
+    - name: Hacer deploy
+      run: 
+         surge --project ./ --domain {{ env.SURGE_SUBDOMAIN.surge.sh}} --token ${{secrets.SURGE_API_KEY}}
